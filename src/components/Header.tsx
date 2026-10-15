@@ -48,7 +48,7 @@ export const Header: React.FC<HeaderProps> = ({
             <Terminal className="w-3.5 h-3.5" />
             <span>CLI</span>
           </button>
-          <button
+          {/* <button
             onClick={() => scrollToSection('skills-credentials')}
             className="hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
@@ -71,20 +71,20 @@ export const Header: React.FC<HeaderProps> = ({
             className="hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Experience
-          </button>
+          </button> */}
           <button
             onClick={() => scrollToSection('movie-credits')}
             className="hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer flex items-center gap-1.5"
           >
             <Film className="w-3.5 h-3.5" />
-            <span>Credits</span>
+            <span>Info</span>
           </button>
-          <button
+          {/* <button
             onClick={onOpenContact}
             className="hover:text-white transition-colors whitespace-nowrap shrink-0 cursor-pointer"
           >
             Contact
-          </button>
+          </button> */}
         </nav>
 
         {/* Primary CTA */}
