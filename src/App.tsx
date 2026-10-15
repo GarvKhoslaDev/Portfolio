@@ -7,10 +7,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { BrutalistHero } from './components/BrutalistHero';
 import { FullscreenTerminal } from './components/FullscreenTerminal';
-import { SkillsCredentialsSection } from './components/SkillsCredentialsSection';
-import { DiagnosticLabsSection } from './components/DiagnosticLabsSection';
-import { ProjectsSection } from './components/ProjectsSection';
-import { ExperienceSection } from './components/ExperienceSection';
+// Skills/Experience/Labs/Projects sections removed to hide them from the website
 import { MovieCreditsSection } from './components/MovieCreditsSection';
 import { BrutalistFooter } from './components/BrutalistFooter';
 import { ResumeModal } from './components/ResumeModal';
@@ -24,7 +21,7 @@ export default function App() {
 
   const scrollToTerminal = () => {
     const el = document.getElementById('cli-terminal');
-    if (el) {z
+    if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -52,21 +49,12 @@ export default function App() {
           onOpenContact={() => setContactOpen(true)}
         />
 
-        {/* 03. Continue Scrolling — Complete Portfolio: Technical Skills & Academic Credentials */}
-        {/* <SkillsCredentialsSection /> */}
-
-        {/* /* {/* 04. Hardware & Diagnostic Troubleshooting Labs (Fluke LinkRunner G2 & Wireshark PCAP Analyzer) */}
-        <DiagnosticLabsSection /> */ */}
-
-        {/* 05. Enterprise Infrastructure & Network Projects */}
-        {/* <ProjectsSection
-          onSelectProject={(id) => setSelectedDossierId(id)}
-        /> */}
-
-        {/* 06. Professional Experience & Deskside Support Operations (VCC CUPE 4627) */}
-        {/* <ExperienceSection
-          onSelectExperience={(id) => setSelectedDossierId(id)}
-        /> */}
+        {/* The following sections were intentionally removed/commented-out so they do not appear on the website:
+            - SkillsCredentialsSection
+            - DiagnosticLabsSection
+            - ProjectsSection
+            - ExperienceSection
+        */}
 
         {/* 07. Full-Screen Classic Movie Ending Credits with Auto-Scroll & Bold Line Highlights */}
         <MovieCreditsSection />
