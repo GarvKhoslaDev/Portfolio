@@ -24,7 +24,7 @@ export default function App() {
 
   const scrollToTerminal = () => {
     const el = document.getElementById('cli-terminal');
-    if (el) {
+    if (el) {z
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -53,20 +53,20 @@ export default function App() {
         />
 
         {/* 03. Continue Scrolling — Complete Portfolio: Technical Skills & Academic Credentials */}
-        <SkillsCredentialsSection />
+        {/* <SkillsCredentialsSection /> */}
 
-        {/* 04. Hardware & Diagnostic Troubleshooting Labs (Fluke LinkRunner G2 & Wireshark PCAP Analyzer) */}
-        <DiagnosticLabsSection />
+        {/* /* {/* 04. Hardware & Diagnostic Troubleshooting Labs (Fluke LinkRunner G2 & Wireshark PCAP Analyzer) */}
+        <DiagnosticLabsSection /> */ */}
 
         {/* 05. Enterprise Infrastructure & Network Projects */}
-        <ProjectsSection
+        {/* <ProjectsSection
           onSelectProject={(id) => setSelectedDossierId(id)}
-        />
+        /> */}
 
         {/* 06. Professional Experience & Deskside Support Operations (VCC CUPE 4627) */}
-        <ExperienceSection
+        {/* <ExperienceSection
           onSelectExperience={(id) => setSelectedDossierId(id)}
-        />
+        /> */}
 
         {/* 07. Full-Screen Classic Movie Ending Credits with Auto-Scroll & Bold Line Highlights */}
         <MovieCreditsSection />
