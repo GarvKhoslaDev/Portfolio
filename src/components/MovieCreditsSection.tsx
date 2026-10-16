@@ -271,10 +271,10 @@ export const MovieCreditsSection: React.FC = () => {
 
             <div className="space-y-2">
               <div className="font-display font-black text-3xl sm:text-5xl text-white uppercase tracking-tight">
-                DIRECTED BY GARV KHOSLA
+                THANKS FOR WATCHING 
               </div>
               <div className="text-xs sm:text-sm font-mono-code text-neutral-400 uppercase tracking-widest pt-1">
-                VANCOUVER COMMUNITY COLLEGE · CUPE 4627 · 2026
+                Garv Khosla 
               </div>
             </div>
           </div>
