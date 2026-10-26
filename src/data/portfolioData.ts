@@ -3,7 +3,7 @@ export interface ExperienceItem {
   company: string;
   location: string;
   title: string;
-  grade?: string;
+  department?: string;
   period: string;
   summary: string;
   highlights: string[];
@@ -14,10 +14,8 @@ export interface EducationItem {
   institution: string;
   location: string;
   degree: string;
-  gpa: string;
-  period: string;
   certifications: string[];
-  focusAreas: string[];
+  availability: string;
 }
 
 export interface ProjectItem {
@@ -28,7 +26,6 @@ export interface ProjectItem {
   period: string;
   overview: string;
   technicalDetails: string[];
-  architecturePoints: string[];
 }
 
 export interface SkillCategory {
@@ -41,8 +38,8 @@ export const PERSONAL_INFO = {
   name: "GARV KHOSLA",
   monogram: "G/K®",
   code: "1234 — |||||||||||||||",
-  title: "Network Analyst & Systems Specialist",
-  subTitle: "Service Desk Technician II (CUPE 4627)",
+  title: "Network & Systems Specialist",
+  subTitle: "Service Desk Technician II · Information Technology Services",
   location: "Vancouver, BC",
   phone: "672.833.1264",
   email: "garvkhosla.2k4@gmail.com",
@@ -50,143 +47,195 @@ export const PERSONAL_INFO = {
   github: "https://github.com",
   dateLabel: "OCTOBER 2026",
   version: "v2.6",
-  shortBio: "Primary technical escalation point and systems specialist with proven expertise across enterprise campus networking, Microsoft Active Directory, SCCM endpoint packaging, and client-side network diagnostics using Fluke instrumentation.",
-  statement: "Specializing in bridging frontline infrastructure triage with permanent network resolution, executing disciplined ITIL change management, and building robust multi-subnet routing topologies."
+  availability: "Available for scheduled after-hours/weekend maintenance windows and on-call response; able to inspect cabling in ceilings and floors and handle server hardware.",
+  shortBio: "Service Desk Technician II at Vancouver Community College acting as the escalation point for Tier 1 staff across Broadway and Downtown campuses, specializing in CLI/Fluke network triage, CCNA-level routing & switching, Active Directory, and SCCM deployments."
 };
+
+export const TECHNICAL_SKILLS: SkillCategory[] = [
+  {
+    category: "Networking (CCNA-level)",
+    description: "Ethernet, LAN/WAN, WLAN (802.11), TCP/IP, VLANs (802.1Q), STP/RSTP, EtherChannel (LACP/PAgP), OSPFv2, inter-VLAN routing, DHCP, DNS, NAT, IPv4 ACLs, port security",
+    skills: [
+      "Ethernet",
+      "LAN/WAN",
+      "WLAN (802.11)",
+      "TCP/IP",
+      "VLANs (802.1Q)",
+      "STP/RSTP",
+      "EtherChannel (LACP/PAgP)",
+      "OSPFv2",
+      "Inter-VLAN Routing",
+      "DHCP",
+      "DNS",
+      "NAT",
+      "IPv4 ACLs",
+      "Port Security"
+    ]
+  },
+  {
+    category: "Systems",
+    description: "Windows Server (Active Directory), Windows 10/11, macOS, Linux (Ubuntu, LeafOS thin clients), Microsoft SCCM, PowerShell",
+    skills: [
+      "Windows Server (Active Directory)",
+      "Windows 10/11",
+      "macOS",
+      "Linux (Ubuntu, LeafOS thin clients)",
+      "Microsoft SCCM",
+      "PowerShell"
+    ]
+  },
+  {
+    category: "Cloud (foundational, lab-based)",
+    description: "Azure and AWS fundamentals: virtual networks/VPCs, subnets, security groups, virtual machines, basic monitoring",
+    skills: [
+      "Azure VNets & Subnets",
+      "AWS VPCs & Security Groups",
+      "Virtual Machines (Windows/Linux & EC2)",
+      "Entra ID & Recovery Services",
+      "S3 Buckets",
+      "Azure Monitor & AWS CloudWatch"
+    ]
+  },
+  {
+    category: "Diagnostics & Tools",
+    description: "Wireshark, Fluke cable/network testers, ping, traceroute, nslookup, ipconfig, TeamDynamix (TDX)",
+    skills: [
+      "Wireshark",
+      "Fluke Cable/Network Testers",
+      "ping",
+      "traceroute / tracert",
+      "nslookup",
+      "ipconfig",
+      "TeamDynamix (TDX)"
+    ]
+  }
+];
 
 export const EXPERIENCES: ExperienceItem[] = [
   {
     id: "vcc-tier2",
-    company: "VANCOUVER COMMUNITY COLLEGE (VCC)",
+    company: "Vancouver Community College (VCC)",
     location: "Vancouver, BC",
     title: "Service Desk Technician II",
-    grade: "CUPE 4627 - Pay Grade 25",
-    period: "August 2026 – Present",
-    summary: "Primary technical escalation point for Tier 1 Service Desk staff, handling advanced, chronic, and complex help requests regarding hardware, operating systems, and campus network connectivity.",
+    department: "Information Technology Services",
+    period: "Aug 2026 to Present",
+    summary: "Act as the escalation point for Tier 1 Service Desk staff, diagnosing hardware, OS, and network connectivity issues across Broadway and Downtown campuses.",
     highlights: [
-      "Act as the primary technical escalation point for Tier 1 Service Desk staff, handling advanced, chronic, and complex help requests regarding hardware, operating systems, and network connectivity.",
-      "Evaluate documented resolutions and analyze incident trends across campus networks to suggest permanent fixes and alert supervisors to emerging infrastructure issues.",
-      "Manage group policies and access administration in Microsoft Active Directory; support enterprise deployment and release processes following ITIL Change Management practices.",
-      "Build and configure SCCM application deployment packages for enterprise rollouts, executing hands-on fixes at the desktop and system level.",
-      "Configure, administer, and optimize helpdesk workflows within TeamDynamix (TDX), tailoring IT inventory tracking and reinforcing SLAs to manage end-user expectations.",
-      "Provide specialized troubleshooting for non-Windows computing devices (Mac OS, mobile devices, tablets) and diagnose complex audiovisual equipment using schematic diagrams and repair manuals.",
-      "Document detailed problem-solving workflows, actions taken, and diagnostic utility outputs from initial report through to final incident resolution."
+      "Act as the escalation point for Tier 1 Service Desk staff, diagnosing hardware, OS, and network connectivity issues across Broadway and Downtown campuses.",
+      "Perform client-side triage using CLI tools (ping, tracert, nslookup, ipconfig, PowerShell) and Fluke testers (port link status, CDP/LLDP detection) to isolate client vs. infrastructure faults before escalating to the network team.",
+      "Administer user accounts, security groups, and OU permissions in Active Directory; support deployment and patch schedules in line with ITIL change management.",
+      "Package, test, and deploy applications using Microsoft SCCM, resolving endpoint configuration issues in campus labs and staff offices.",
+      "Track incident trends and manage workflows in TeamDynamix, update asset inventory records, and write technical documentation.",
+      "Troubleshoot macOS, mobile platforms, and campus audiovisual equipment using vendor diagnostic manuals."
     ],
-    technologies: ["Active Directory", "SCCM Deployments", "Group Policy (GPO)", "TeamDynamix (TDX)", "ITIL Change Management", "macOS & Mobile MDM", "Audiovisual Schematics"]
+    technologies: [
+      "Active Directory",
+      "Microsoft SCCM",
+      "Fluke Testers (CDP/LLDP)",
+      "CLI Triage & PowerShell",
+      "TeamDynamix (TDX)",
+      "ITIL Change Management",
+      "macOS & AV Diagnostics"
+    ]
   },
   {
     id: "vcc-tier1",
-    company: "VANCOUVER COMMUNITY COLLEGE (VCC)",
+    company: "Vancouver Community College (VCC)",
     location: "Vancouver, BC",
-    title: "Service Desk Technician I / IT Support Specialist",
-    period: "June 2026 – August 2026",
-    summary: "Delivered frontline deskside support, physical network line validation using Fluke testing equipment, client IP configuration, and campus-wide OS migrations.",
+    title: "Service Desk Technician I",
+    department: "Client Services & Desktop Operations",
+    period: "Jun 2026 to Aug 2026",
+    summary: "Delivered deskside support, using Fluke testers to inspect wall jacks, patch cables, and link states during office moves, desktop rebuilds, and classroom lab deployments.",
     highlights: [
-      "Provided frontline deskside support, utilizing Fluke network and cable testers to verify wall ports, patch cables, and link states during workstation moves and connection setups.",
-      "Performed initial client-side troubleshooting and gathered detailed diagnostic data (error logs, port states, IP configurations) before cleanly escalating complex network issues to the core network team.",
-      "Configured static/dynamic IP addressing, subnet masks, default gateways, and wireless supplicants on Windows, macOS, and mobile devices to establish reliable endpoint network attachment.",
-      "Supported enterprise operating system deployments, Windows 10 to 11 migrations, and the rollout of Linux-based LeafOS thin-client VDI workstations across campus labs.",
-      "Recorded, tracked, and categorized incident data and network service requests using TeamDynamix (TDX), ensuring precise documentation of all client-side diagnostic steps."
+      "Delivered deskside support, using Fluke testers to inspect wall jacks, patch cables, and link states during office moves, desktop rebuilds, and classroom lab deployments.",
+      "Configured client TCP/IP settings and installed VCC device certificates to connect endpoints to existing 802.1X wireless profiles; resolved certificate trust errors on Windows, macOS, and mobile devices.",
+      "Supported campus-wide workstation refreshes, Windows 10 to 11 migrations, and deployment of Linux-based LeafOS thin clients connecting to VDI environments.",
+      "Captured event logs, IP/MAC configurations, and physical port states to escalate recurring issues to the core network and server teams in TeamDynamix."
     ],
-    technologies: ["Fluke Cable Testers", "LeafOS Thin-Client VDI", "Windows 11 Migration", "TCP/IP Subnetting", "TeamDynamix", "Wireless 802.1X"]
+    technologies: [
+      "Fluke Cable/Port Testers",
+      "802.1X Wireless Certificates",
+      "TCP/IP Configuration",
+      "Windows 10/11 Migrations",
+      "Linux LeafOS Thin Clients (VDI)",
+      "TeamDynamix"
+    ]
   },
   {
     id: "langara-intern",
-    company: "LANGARA COLLEGE",
+    company: "Langara College",
     location: "Vancouver, BC",
     title: "IT Technician Intern",
+    department: "Campus IT Operations",
     period: "2024 (4 months)",
-    summary: "Supported campus IT operations by diagnosing hardware, desktop OS, and network connectivity issues in a higher education environment.",
+    summary: "Diagnosed workstation hardware, OS imaging, network printer, and physical-layer cabling issues; maintained hardware inventory records and updated user documentation.",
     highlights: [
-      "Supported campus IT operations by diagnosing hardware, desktop OS, and network connectivity issues in a higher education environment.",
-      "Assisted in updating technical documentation, end-user FAQ guides, and maintaining accurate asset inventory records."
+      "Diagnosed workstation hardware, OS imaging, network printer, and physical-layer cabling issues; maintained hardware inventory records and updated user documentation."
     ],
-    technologies: ["Campus IT Operations", "Hardware Diagnostics", "Desktop OS Support", "Asset Inventory", "Technical FAQ Documentation"]
+    technologies: [
+      "Workstation Hardware",
+      "OS Imaging",
+      "Network Printers",
+      "Physical-Layer Cabling",
+      "Hardware Inventory"
+    ]
   }
 ];
-
-export const EDUCATION: EducationItem = {
-  institution: "LANGARA COLLEGE",
-  location: "Vancouver, BC",
-  degree: "Diploma in Computer Systems (Hardware, Software & Programming)",
-  gpa: "3.5",
-  period: "2023 – 2025",
-  certifications: [
-    "CompTIA A+ Certified",
-    "SCCM Training Completed",
-    "CCNA Curriculum Knowledge"
-  ],
-  focusAreas: [
-    "TCP/IP Networking & Subnet Architecture",
-    "Network Diagnostics & Protocol Analysis",
-    "Linux Administration & Shell Utilities",
-    "C Programming & System Architecture",
-    "Relational Database Systems & SQL"
-  ]
-};
 
 export const PROJECTS: ProjectItem[] = [
   {
     id: "routing-switching-lab",
-    title: "Enterprise Routing & Switching Lab",
-    category: "Network Infrastructure & Cisco Protocols",
-    tools: ["Cisco Packet Tracer", "Wireshark", "Boson NetSim", "CLI"],
-    period: "Jeremy’s IT Lab / Boson Infrastructure",
-    overview: "Multi-subnet virtual network topology designed to implement and test enterprise routing protocols, switching segmentation, loop prevention, and deep packet captures.",
-    technicalDetails: [
-      "Configured multi-subnet virtual network topologies to practice CCNA routing, switching, and VLAN segmentation (802.1Q trunking, Inter-VLAN routing with Router-on-a-Stick).",
-      "Implemented OSPFv2/v3 dynamic routing protocols with single and multi-area designs, Spanning Tree Protocol (STP/RSTP) for loop prevention, and EtherChannel (LACP/PAgP) link aggregation.",
-      "Captured and analyzed packets using Wireshark to inspect TCP 3-way handshakes, DHCP DORA process, ARP requests/replies, and DNS resolutions.",
-      "Configured standard and extended Access Control Lists (ACLs), port security with sticky MAC addresses, and secure management interfaces (SSHv2, console passwords)."
+    title: "Routing, Switching & Packet Analysis Lab (CCNA)",
+    category: "Cisco IOS, Packet Tracer, Wireshark",
+    tools: [
+      "Cisco IOS",
+      "Packet Tracer",
+      "Wireshark",
+      "802.1Q VLANs",
+      "OSPFv2",
+      "RSTP",
+      "LACP/PAgP",
+      "ACLs & DAI"
     ],
-    architecturePoints: [
-      "802.1Q VLAN Trunking & Subnet Segmentation",
-      "OSPFv2 / OSPFv3 Dynamic Route Propagation",
-      "RSTP 802.1w Rapid Spanning Tree Topology",
-      "Wireshark Packet Dissection & DORA Analysis",
-      "Switchport Port Security & Violation Actions"
+    period: "CCNA (200-301) Lab",
+    overview: "Built multi-subnet topologies in Packet Tracer with Layer 2/Layer 3 switching, dynamic OSPFv2 routing, loop prevention, Layer 2 security, and Wireshark packet analysis.",
+    technicalDetails: [
+      "Built multi-subnet topologies in Packet Tracer using 802.1Q VLAN trunking, router-on-a-stick, Layer 3 switch inter-VLAN routing, and single/multi-area OSPFv2.",
+      "Configured RSTP (PortFast, BPDU Guard) and LACP/PAgP EtherChannel for loop-free switching and link aggregation.",
+      "Applied standard/extended ACLs, DHCP Snooping, Dynamic ARP Inspection, and port security; used Wireshark to examine TCP handshakes, ARP, DNS, and DHCP traffic."
     ]
   },
   {
-    id: "yieldly-inventory",
-    title: "Yieldly Inventory and Waste Intelligence System",
-    category: "Software & Relational Databases",
-    tools: ["Python", "SQL", "Relational Database", "Data Analytics"],
-    period: "Technical Systems Project",
-    overview: "Relational database schema and Python transaction engine built to manage high-volume inventory items, track expiration thresholds, and generate analytical waste reports.",
-    technicalDetails: [
-      "Designed a normalized 3NF relational database schema using SQL to manage inventory transactions, item categories, supplier logs, and waste tracking.",
-      "Wrote complex SQL analytical queries utilizing joins, window functions, and aggregation to compute real-time shrink metrics and turnover rates.",
-      "Integrated Python scripts for automated batch ingestion of inventory records and automated alert generation for low-stock and expiring items."
+    id: "cloud-infrastructure-lab",
+    title: "Cloud Infrastructure Fundamentals Lab",
+    category: "Azure & AWS",
+    tools: [
+      "Microsoft Azure",
+      "AWS",
+      "VNets & VPCs",
+      "NSGs & Security Groups",
+      "Windows/Linux VMs & EC2",
+      "Entra ID",
+      "Azure Monitor & CloudWatch"
     ],
-    architecturePoints: [
-      "Normalized 3NF Relational Schema Design",
-      "Complex SQL Analytical Queries & Aggregations",
-      "Python Data Processing & Batch Ingestion",
-      "Transaction Logging & Audit Trail Tracking"
+    period: "Cloud Lab",
+    overview: "Hands-on foundational cloud networking, virtual machine deployment, identity integration, and resource monitoring across Azure and AWS.",
+    technicalDetails: [
+      "Azure: practised creating VNets and subnets, configuring basic NSGs, and deploying Windows Server and Linux VMs; explored Entra ID integration and Recovery Services Vaults.",
+      "AWS: explored VPC networking, public/private subnets, Internet Gateways, NAT, and security groups; practised deploying EC2 instances and creating S3 buckets.",
+      "Monitoring: introductory exposure to Azure Monitor and AWS CloudWatch for reviewing resource metrics and basic alerts."
     ]
   }
 ];
 
-export const TECHNICAL_SKILLS: SkillCategory[] = [
-  {
-    category: "Networking & Protocols",
-    description: "Enterprise routing, switching, packet inspection, and physical link diagnostics.",
-    skills: ["CCNA Curriculum", "TCP/IP & Subnetting", "VLAN 802.1Q", "OSPFv2/v3", "STP / RSTP", "EtherChannel", "Wireshark Packet Analysis", "Fluke Cable & Port Testers", "DHCP DORA & DNS", "ACLs & Port Security"]
-  },
-  {
-    category: "Systems & Endpoint Management",
-    description: "Enterprise OS rollouts, policy orchestration, and thin-client environments.",
-    skills: ["Microsoft Active Directory", "Group Policy (GPO)", "SCCM Deployment Packaging", "Windows 10 to 11 Migrations", "LeafOS Thin-Client VDI", "macOS & Mobile Device Support", "Desktop Hardware Triage"]
-  },
-  {
-    category: "ITSM & Service Operations",
-    description: "ITIL-aligned incident workflows, ticket triage, and SLA enforcement.",
-    skills: ["TeamDynamix (TDX) Administration", "ITIL Change Management", "Tier 1 Escalation Handling", "SLA & Ticket Tracking", "Audiovisual Diagnostics", "Technical Documentation & FAQs", "Hardware Asset Inventory"]
-  },
-  {
-    category: "Programming & Databases",
-    description: "Systems programming, scripting, and relational data structures.",
-    skills: ["Python", "SQL & Relational Databases", "C Systems Programming", "Linux / Bash Shell", "Git & Version Control"]
-  }
-];
+export const EDUCATION: EducationItem = {
+  institution: "Langara College",
+  location: "Vancouver, BC",
+  degree: "Diploma in Computer Systems (Hardware, Software & Networking)",
+  certifications: [
+    "CompTIA A+ Certified",
+    "SCCM Deployment Training",
+    "CCNA (200-301) lab curriculum"
+  ],
+  availability: "Available for scheduled after-hours/weekend maintenance windows and on-call response; able to inspect cabling in ceilings and floors and handle server hardware."
+};

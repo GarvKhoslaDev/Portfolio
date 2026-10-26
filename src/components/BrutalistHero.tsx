@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ArrowDown, Copy, Check, FileText, Mail, Terminal } from 'lucide-react';
-import fluidArtImg from '../assets/images/abstract_fluid_ink_1792098615441.jpg';
 
 interface BrutalistHeroProps {
   onOpenResume: () => void;
@@ -36,9 +35,9 @@ export const BrutalistHero: React.FC<BrutalistHeroProps> = ({
     >
       {/* Top Banner: Giant Brutalist Bracketed Headline in Clean Pure White */}
       <div className="relative z-10 w-full text-center">
-        <h1 className="font-display font-black tracking-tighter text-white uppercase text-[clamp(2.5rem,8.2vw,9.5rem)] leading-[0.88] transition-all duration-500">
+        <h1 className="font-display font-black tracking-tighter text-white uppercase text-[clamp(1.75rem,6.8vw,8.25rem)] leading-[0.88] whitespace-nowrap transition-all duration-500">
           <span className="text-neutral-500 inline-block font-mono-code font-light mr-1">[</span>
-          NETWORK ANALYST
+          NETWORK PORTFOLIO
           <span className="text-neutral-500 inline-block font-mono-code font-light ml-1">]</span>
         </h1>
         <div className="mt-3 text-xs sm:text-sm font-mono-code uppercase tracking-widest text-neutral-400 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
@@ -52,10 +51,9 @@ export const BrutalistHero: React.FC<BrutalistHeroProps> = ({
         </div>
       </div>
 
-      {/* Middle Information Row: Pure Black Background with Rectangular Fluid Art Card on the Right */}
-      <div className="relative z-10 my-auto py-6 sm:py-8 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-8 border-y border-neutral-900">
-        {/* Left Information Grid */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-xs sm:text-sm font-mono-code items-center">
+      {/* Central Menu (3 Columns) in the Middle */}
+      <div className="relative z-10 my-auto w-full max-w-7xl mx-auto lg:pr-[350px] xl:pr-[430px]">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 text-xs sm:text-sm font-mono-code border-y border-neutral-900 py-10 sm:py-14 items-center">
           {/* Column 1: Created & Prepared by */}
           <div className="space-y-1">
             <span className="text-neutral-500 text-xs uppercase tracking-wider block">Created and Engineered by</span>
@@ -63,15 +61,15 @@ export const BrutalistHero: React.FC<BrutalistHeroProps> = ({
               {PERSONAL_INFO.name}
             </span>
             <span className="text-neutral-400 text-xs block">
-              Service Desk Tech II (VCC CUPE 4627)
+              Service Desk Technician II · VCC IT Services
             </span>
           </div>
 
           {/* Column 2: Direct Contact Coordinates with 1-click copy */}
-          <div className="space-y-1">
+          <div className="space-y-1 md:text-center">
             <button
               onClick={() => handleCopy(PERSONAL_INFO.phone, 'phone')}
-              className="flex items-center gap-1.5 text-neutral-300 hover:text-white transition-colors group cursor-pointer"
+              className="flex items-center gap-1.5 text-neutral-300 hover:text-white transition-colors group cursor-pointer md:mx-auto"
               title="Click to copy phone"
             >
               <span className="font-mono-code text-sm sm:text-base font-semibold text-white">
@@ -81,7 +79,7 @@ export const BrutalistHero: React.FC<BrutalistHeroProps> = ({
             </button>
             <button
               onClick={() => handleCopy(PERSONAL_INFO.email, 'email')}
-              className="flex items-center gap-1.5 text-neutral-300 hover:text-white transition-colors group cursor-pointer"
+              className="flex items-center gap-1.5 text-neutral-300 hover:text-white transition-colors group cursor-pointer md:mx-auto"
               title="Click to copy email"
             >
               <span className="text-xs sm:text-sm">{PERSONAL_INFO.email}</span>
@@ -90,32 +88,32 @@ export const BrutalistHero: React.FC<BrutalistHeroProps> = ({
           </div>
 
           {/* Column 3: Location Coordinates */}
-          <div className="space-y-1">
+          <div className="space-y-1 md:text-right">
             <span className="font-bold text-white text-base sm:text-lg block tracking-tight">
               Vancouver, BC
             </span>
             <span className="text-neutral-300 text-xs block">
-              Campus Networks · Active Directory
+              CCNA Routing · Active Directory · SCCM
             </span>
             <span className="text-neutral-400 text-xs block">
-              Langara Systems Diploma · GPA 3.5
+              Langara Computer Systems · CompTIA A+
             </span>
           </div>
         </div>
+      </div>
 
-        {/* Right: Rectangular Card with User's Uploaded Art Image */}
-        <div className="shrink-0">
-          <div className="w-36 sm:w-44 md:w-52 aspect-[3/4] rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 relative group shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
-            <img
-              src={fluidArtImg}
-              alt="Fluid Ink Specimen"
-              className="w-full h-full object-cover filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[9px] font-mono-code text-white/90 uppercase tracking-widest px-1">
-              <span>SPECIMEN // 01</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
-            </div>
+      {/* Rectangular Specimen Card on the Right (1/3 shorter height & shifted further left) */}
+      <div className="relative z-10 my-6 lg:my-0 mx-auto lg:mx-0 w-64 sm:w-72 h-64 sm:h-72 lg:h-auto lg:w-[260px] xl:w-[310px] lg:absolute lg:right-[92px] xl:right-[128px] lg:top-[29%] lg:bottom-[27%]">
+        <div className="w-full h-full rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 relative group shadow-2xl transition-transform duration-300 hover:scale-[1.01]">
+          <img
+            src="/assets/aistudio/image_570bc5bc.png"
+            alt="Fluid Agate Specimen"
+            className="w-full h-full object-cover filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[10px] font-mono-code text-white/90 uppercase tracking-widest px-1">
+            <span>SPECIMEN // 01</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
           </div>
         </div>
       </div>

@@ -50,7 +50,7 @@ export const BrutalistFooter: React.FC<BrutalistFooterProps> = ({ onOpenResume, 
             <span className="text-neutral-500 inline-block font-mono-code font-light ml-1">]</span>
           </h2>
           <div className="mt-3 text-xs sm:text-sm font-mono-code text-neutral-400">
-            VANCOUVER, BRITISH COLUMBIA · CUPE 4627 TIER 1 ESCALATION LEAD
+            VANCOUVER, BRITISH COLUMBIA · SERVICE DESK TECHNICIAN II (VCC IT SERVICES)
           </div>
         </div>
 
@@ -129,7 +129,7 @@ export const BrutalistFooter: React.FC<BrutalistFooterProps> = ({ onOpenResume, 
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-code text-xs text-neutral-500">
           <div>
-            © 2026 Garv Khosla · Systems & Network Analyst · Built with Apple Keynote Precision
+            © 2026 Garv Khosla · Systems &amp; Network Analyst
           </div>
 
           <button

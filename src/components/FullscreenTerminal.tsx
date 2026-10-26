@@ -193,16 +193,16 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
               WINDOWS COMMAND UTILITIES — GARV KHOSLA PROFILE
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 text-neutral-300">
-              <div><strong className="text-white">whoami</strong> : Bio, role & VCC CUPE 4627 standing</div>
-              <div><strong className="text-white">experience</strong> : Full employment history & achievements</div>
-              <div><strong className="text-white">skills</strong> : AD GPO, SCCM, 802.1Q & Linux matrix</div>
-              <div><strong className="text-white">projects</strong> : Cisco CCNA lab & Yieldly SQL system</div>
-              <div><strong className="text-white">certs</strong> : CompTIA A+, CCNA knowledge & GPA 3.5</div>
-              <div><strong className="text-white">ipconfig</strong> : Adapter configuration & campus VLANs</div>
+              <div><strong className="text-white">whoami</strong> : Bio, role &amp; availability</div>
+              <div><strong className="text-white">experience</strong> : VCC Tier II/I &amp; Langara IT history</div>
+              <div><strong className="text-white">skills</strong> : Networking (CCNA), Systems, Cloud &amp; Tools</div>
+              <div><strong className="text-white">projects</strong> : CCNA Routing/Switching &amp; Cloud (Azure/AWS) Labs</div>
+              <div><strong className="text-white">certs</strong> : Education, CompTIA A+, SCCM &amp; CCNA curriculum</div>
+              <div><strong className="text-white">ipconfig</strong> : Adapter configuration &amp; campus VLANs</div>
               <div><strong className="text-white">dir</strong> : List files and credential folders</div>
-              <div><strong className="text-white">systeminfo</strong> : Host operating system and SLA telemetry</div>
+              <div><strong className="text-white">systeminfo</strong> : Host operating system and network adapters</div>
               <div><strong className="text-white">ping</strong> : ICMP test to campus gateway 10.24.20.1</div>
-              <div><strong className="text-white">fluke</strong> : Fluke LinkRunner TDR cable & PoE test</div>
+              <div><strong className="text-white">fluke</strong> : Fluke LinkRunner cable &amp; CDP/LLDP test</div>
               <div><strong className="text-white">contact</strong> : Direct telephone, email, and location</div>
               <div><strong className="text-white">resume</strong> : Open printable PDF document dossier</div>
               <div><strong className="text-white">cls / clear</strong> : Clear command prompt buffer</div>
@@ -217,21 +217,24 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
       case 'whoami':
         outputContent = (
           <div className="space-y-2 font-mono-code text-xs sm:text-sm text-neutral-200">
-            <div className="text-white font-bold text-base flex items-center gap-2">
+            <div className="text-white font-bold text-base flex flex-wrap items-center gap-2">
               <span>{PERSONAL_INFO.name}</span>
               <span className="text-xs font-normal text-white bg-neutral-800 border border-neutral-700 px-2 py-0.5 rounded">
-                DOMAIN USER: VCC\gkhosla (CUPE 4627 Pay Grade 25)
+                DOMAIN USER: VCC\gkhosla (Information Technology Services)
               </span>
             </div>
             <div className="text-white font-semibold">
-              {PERSONAL_INFO.title} · {PERSONAL_INFO.subTitle}
+              {PERSONAL_INFO.subTitle}
             </div>
             <div className="text-xs text-neutral-400">
-              Location: {PERSONAL_INFO.location} · Institution: Vancouver Community College
+              Location: {PERSONAL_INFO.location} &nbsp;|&nbsp; {PERSONAL_INFO.phone} &nbsp;|&nbsp; {PERSONAL_INFO.email}
             </div>
             <p className="font-sans text-xs sm:text-sm text-neutral-300 mt-2 max-w-3xl leading-relaxed">
               {PERSONAL_INFO.shortBio}
             </p>
+            <div className="text-xs text-neutral-300 pt-1 border-t border-neutral-800/80">
+              <strong className="text-white">Availability: </strong>{PERSONAL_INFO.availability}
+            </div>
           </div>
         );
         break;
@@ -243,25 +246,21 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
             {EXPERIENCES.map((exp, idx) => (
               <div key={exp.id} className="border-l-2 border-white pl-4 py-1 space-y-1.5">
                 <div className="flex flex-wrap items-baseline justify-between gap-1">
-                  <span className="font-bold text-white text-sm">0{idx + 1}. {exp.company}</span>
-                  <span className="text-neutral-400 text-[11px]">{exp.period}</span>
+                  <span className="font-bold text-white text-sm">
+                    0{idx + 1}. {exp.company} | {exp.title}
+                  </span>
+                  <span className="text-neutral-400 text-[11px]">{exp.period} · {exp.location}</span>
                 </div>
-                <div className="text-neutral-200 font-semibold">
-                  {exp.title} {exp.grade ? `(${exp.grade})` : ''} · {exp.location}
-                </div>
-                <div className="text-neutral-300 font-sans leading-relaxed pt-1">{exp.summary}</div>
-                <div className="pt-1.5 space-y-1">
-                  <span className="text-[10px] text-neutral-400 uppercase font-bold block">Key Deliverables:</span>
-                  <ul className="list-disc pl-4 space-y-1 font-sans text-neutral-300">
-                    {exp.highlights.slice(0, 3).map((h, i) => (
-                      <li key={i}>{h}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="text-[11px] text-neutral-400 pt-1">
-                  <span className="text-neutral-500 uppercase text-[10px] font-bold">Stack: </span>
-                  {exp.technologies.join(' · ')}
-                </div>
+                {exp.department && (
+                  <div className="text-neutral-200 font-semibold">
+                    {exp.department}
+                  </div>
+                )}
+                <ul className="list-disc pl-4 space-y-1 font-sans text-neutral-300 pt-1">
+                  {exp.highlights.map((h, i) => (
+                    <li key={i}>{h}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -274,11 +273,11 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
           <div className="space-y-3 font-mono-code text-xs">
             {TECHNICAL_SKILLS.map((c, i) => (
               <div key={i} className="bg-neutral-900/80 border border-neutral-800 p-3 rounded">
-                <div className="text-white font-bold uppercase text-[11px] mb-1.5">
+                <div className="text-white font-bold uppercase text-[11px] mb-1">
                   0{i + 1}. {c.category}
                 </div>
-                <div className="text-neutral-300 leading-relaxed">
-                  {c.skills.join('   ·   ')}
+                <div className="text-neutral-300 font-sans leading-relaxed">
+                  {c.description}
                 </div>
               </div>
             ))}
@@ -291,13 +290,15 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
         outputContent = (
           <div className="space-y-3 font-mono-code text-xs">
             {PROJECTS.map((proj, idx) => (
-              <div key={proj.id} className="border-l-2 border-neutral-400 pl-4 py-1.5 space-y-1">
-                <div className="font-bold text-white text-sm">{idx + 1}. {proj.title}</div>
-                <div className="text-neutral-300 text-[11px]">{proj.category} · {proj.period}</div>
-                <div className="text-neutral-300 font-sans leading-relaxed pt-1">{proj.overview}</div>
-                <div className="text-neutral-400 text-[11px] pt-1">
-                  <span className="text-neutral-500 font-bold">Stack: </span>{proj.tools.join(' · ')}
+              <div key={proj.id} className="border-l-2 border-neutral-400 pl-4 py-1.5 space-y-1.5">
+                <div className="font-bold text-white text-sm">
+                  0{idx + 1}. {proj.title} | <span className="text-neutral-300">{proj.category}</span>
                 </div>
+                <ul className="list-disc pl-4 space-y-1 font-sans text-neutral-300">
+                  {proj.technicalDetails.map((d, i) => (
+                    <li key={i}>{d}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -311,17 +312,20 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
           <div className="space-y-3 font-mono-code text-xs">
             <div className="bg-neutral-900/80 p-3.5 rounded border border-neutral-800">
               <div className="text-white font-bold text-sm">{EDUCATION.institution}</div>
-              <div className="text-neutral-300">{EDUCATION.degree}</div>
-              <div className="text-white font-semibold mt-1">Cumulative GPA: {EDUCATION.gpa} | {EDUCATION.period}</div>
+              <div className="text-neutral-200 mt-0.5">{EDUCATION.degree}</div>
             </div>
             <div className="pt-1 space-y-1.5">
-              <span className="text-[10px] text-neutral-400 uppercase font-bold block">Verified Credentials:</span>
+              <span className="text-[10px] text-neutral-400 uppercase font-bold block">Credentials &amp; Training:</span>
               {EDUCATION.certifications.map((c, i) => (
                 <div key={i} className="text-white flex items-center gap-2">
                   <span className="text-neutral-400 font-bold">[✓]</span>
                   <span>{c}</span>
                 </div>
               ))}
+            </div>
+            <div className="pt-1 text-neutral-300 font-sans">
+              <strong className="text-white font-mono-code">Availability: </strong>
+              {EDUCATION.availability}
             </div>
           </div>
         );
@@ -370,7 +374,7 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
           <div className="space-y-1 font-mono-code text-xs text-neutral-300">
             <div>OS Name:                   Microsoft Windows 11 Enterprise (VDI LeafOS Enabled)</div>
             <div>OS Version:                10.0.26200 Build 26200</div>
-            <div>System Role:               Service Desk Technician II (CUPE 4627)</div>
+            <div>System Role:               Service Desk Technician II · Information Technology Services</div>
             <div>Registered Owner:          Garv Khosla</div>
             <div>Domain:                    VCC.INTERNAL</div>
             <div>Network Cards:             10 Gbps SFP+ Fiber, Intel I219-LM Gigabit</div>
@@ -646,7 +650,7 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
         </div>
       </div>
 
-      {/* Bottom Bar: Status & Smooth Snapping Transition to Education & Skills */}
+      {/* Bottom Bar: Status & Smooth Snapping Transition to Experience Roll */}
       <div className="bg-[#141414] border-t border-neutral-800 px-4 sm:px-6 py-2.5 flex items-center justify-between text-xs text-neutral-400 select-none shrink-0 font-mono-code">
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
@@ -654,12 +658,12 @@ export const FullscreenTerminal: React.FC<{ onOpenResume: () => void; onOpenCont
         </div>
         <button
           onClick={() => {
-            const el = document.getElementById('skills-credentials');
+            const el = document.getElementById('movie-credits');
             if (el) el.scrollIntoView({ behavior: 'smooth' });
           }}
           className="flex items-center gap-1.5 text-[11px] text-neutral-400 hover:text-white transition-colors cursor-pointer group"
         >
-          <span>Continue scrolling reveals Skills & Portfolio</span>
+          <span>Scroll down for Experience Roll</span>
           <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
         </button>
       </div>
